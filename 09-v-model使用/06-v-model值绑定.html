@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="checkbox" v-model="toggle" true-value="yes" false-value="no">
+    {{toggle}}
+
+    <br>
+
+    <select v-model="fruit">
+        <option disabled value="">请选择</option>
+        <option :value="{fruit : '苹果'}">苹果</option>
+        <option :value="{fruit : '香蕉'}">香蕉</option>
+        <option :value="{fruit : '西瓜'}">西瓜</option>
+    </select>
+    <h2>选择的是{{fruit}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            toggle: '',
+            fruit: ''
+        }
+    })
+</script>
+</body>
+</html>

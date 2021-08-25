@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--v-on无参数时，方法后的()可省略，但是方法本身是需要一个参数的，这个时候vue会默认将浏览器生成的event事件对象座位参数传入到方法-->
+    <button @click="btnClick1">按钮一</button>
+    <button @click="btnClick2">按钮二</button>
+    <!--函数需参数，调用时无传递参数则接收的是`undefined`-->
+    <button @click="btnClick3()">按钮三</button>
+    <!--方法定义时，既需要参数又需要event对象，使用&手动获取浏览器参数的event对象-->
+    <button @click="btnClick4(1243,$event)">按钮四</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello'
+        },
+        methods: {
+            btnClick1() {
+                alert('点击')
+            },
+            btnClick2(event) {
+                alert(event)
+            },
+            btnClick3(val) {
+                alert(val)
+            },
+            btnClick4(val,event) {
+                alert(val)
+                alert(event)
+            }
+        }
+    })
+</script>
+</body>
+</html>

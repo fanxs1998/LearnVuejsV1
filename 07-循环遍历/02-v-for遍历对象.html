@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>{{message}}</h2>
+    <!--1.遍历对象，如果只获取一个值，则获取的是value-->
+    <ul>
+        <li v-for="item in user">{{item}}</li>
+    </ul>
+
+    <!--2.遍历对象，获取key和value 格式是(value,key)-->
+    <ul>
+        <li v-for="(value,key) in user">{{key}}--{{value}}</li>
+    </ul>
+    <!--3.遍历对象，获取key和value和index 格式是(value,key,index)-->
+    <ul>
+        <li v-for="(value,key,index) in user">{{index}}--{{key}}--{{value}}</li>
+    </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello',
+            user:{
+                name: "fanxs",
+                age: "18"
+            }
+        }
+    })
+</script>
+</body>
+</html>

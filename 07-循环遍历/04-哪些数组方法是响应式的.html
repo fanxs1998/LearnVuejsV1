@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item in letters">{{item}}</li>
+    </ul>
+    <button @click="add">按钮</button>
+    <button @click="sort">排序</button>
+    <button @click="exchange">修改</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            letters: ['1','2','5','3']
+        },
+        methods: {
+            add () {
+                //添加元素
+                //this.letters.push('111')
+
+                //删除元素
+                //this.letters.pop()
+
+                //删除第一项
+                //this.letters.shift()
+
+                //添加第一项
+                //this.letters.unshift('sss')
+
+                //删除、添加、替换
+                //删除起始下标为1，长度为1的值
+                this.letters.splice(1,1)
+                //在下标为1处添加元素
+                this.splice(1,"添加")
+                //替换起始下标为1，长度为1的一个值为--
+                this.splice(1,1,"替换")
+            },
+            sort () {
+                this.letters.sort()
+            },
+            //通过索引值修改数组元素
+            exchange () {
+                //不会响应式更新
+                this.letters[0] = 'abandon'
+                //响应式更新
+                this.letters.splice(0,1,'abandon')
+                //set（要修改的对象，索引值，修改后的值）
+                Vue.set(this.letters,0,'abandon')
+            }
+        }
+    })
+</script>
+</body>
+</html>

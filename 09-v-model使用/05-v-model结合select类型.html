@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--1.单选框-->
+    <!--推荐像这样提供一个值为空的禁用选项-->
+    <select v-model="fruit">
+        <option disabled value="">请选择</option>
+        <option value="peach">水蜜桃</option>
+        <option value="cantaloupe">哈密瓜</option>
+        <option value="kiwi">猕猴桃</option>
+    </select>
+    <h2>选择的是{{fruit}}</h2>
+
+    <!--2.多选框-->
+    <select v-model="fruits" multiple>
+        <option value="peach">水蜜桃</option>
+        <option value="cantaloupe">哈密瓜</option>
+        <option value="kiwi">猕猴桃</option>
+    </select>
+    <h2>选择的是{{fruits}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello',
+            fruit: '',
+            fruits: []
+        }
+    })
+</script>
+</body>
+</html>

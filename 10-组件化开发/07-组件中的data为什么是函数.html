@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <cpn></cpn>
+    <cpn></cpn>
+</div>
+
+<template id="cpn">
+    <div>
+        <button v-on:click="increment">+</button>
+        <h2>{{num}}</h2>
+        <button v-on:click="decrement">-</button>
+    </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+    //data函数返回一个数据对象，避免多个实例中每一个实例相互影响
+    Vue.component('cpn',{
+        template: cpn,
+        data() {
+            return {
+                num: 0
+            }
+        },
+        methods: {
+            increment(){
+                this.num++
+            },
+            decrement(){
+                this.num--
+            }
+        }
+    })
+
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello'
+        }
+    })
+</script>
+<script>
+    function abc() {
+        return {
+            name: 'ss',
+            age: 18
+        }
+    }
+    let obj1 = abc()
+    let obj2 = abc()
+    let obj3 = abc()
+    obj1.name = 'copy'
+    console.log(obj1)
+    console.log(obj2)
+    console.log(obj3)
+</script>
+</body>
+</html>

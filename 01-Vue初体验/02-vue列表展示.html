@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item in list">{{item}}</li>
+    </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    //声明式编程（区别于命令式）
+    const app = new Vue({
+        el: '#app',//挂载的元素
+        data: { //定义数据
+            message: 'hello',
+            list: ['北京','上海','广州','深圳']
+        }
+    })
+</script>
+
+</body>
+</html>

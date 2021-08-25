@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>vue</title>
+    <style>
+        .myStyle{
+            border:1px solid #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <img src="https://cn.vuejs.org/images/logo.png" title="vue">
+    <br>
+    <img v-bind:src="info" v-bind:title="message">
+    <br>
+    <img :src="info" :title="message" :class="{myStyle:isActive}" @click="toggleActive">
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    var app1 = new Vue({
+        el: '#app',
+        data:{
+            info:"https://cn.vuejs.org/images/logo.png",
+            message:'标题',
+            isActive:true
+        },
+        methods:{
+            toggleActive:function () {
+                this.isActive=!this.isActive
+                alert('不知道会不会再乱码！');
+            }
+        }
+    })
+</script>
+</body>
+</html>

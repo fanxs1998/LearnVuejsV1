@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--该写法在2.6.0以后版本已过时-->
+    <cpn>
+        <template slot-scope="slot">
+            <span v-for="item in slot.data">{{item}}-</span>
+        </template>
+    </cpn>
+
+    <!-- 2.6.0后的写法-->
+    <cpn>
+        <template v-slot:default="slotProps">
+            <span v-for="item in slotProps.data">{{item}}-</span>
+        </template>
+    </cpn>
+</div>
+
+<template id="cpn">
+    <div>
+        <!--提供v-bind将数据绑定，’data‘名字可自定义-->
+        <slot :data="pLanguage">
+<!--            <ul>
+                <li v-for="item in pLanguage">{{item}}</li>
+            </ul>-->
+        </slot>
+    </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+    const cpn = {
+        template: '#cpn',
+        data() {
+            return{
+                pLanguage: ["java","php","python"]
+            }
+        }
+    }
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'hello'
+        },
+        components: {
+            cpn
+        }
+    })
+</script>
+</body>
+</html>
